@@ -27,4 +27,27 @@ const filteredTodoListState = selector({
 	},
 });
 
-export { todoListState, todoListFilterState, filteredTodoListState };
+const todoListInfoState = selector({
+	key: 'todoListInfoState',
+	get: ({ get }) => {
+		const todoList = get(todoListState);
+		const totalNum = todoList.length;
+		const totalCompletedNum = todoList.filter((item) => item.isComplete).length;
+
+		let allText = '';
+		todoList.filter((item) => !item.isComplete).map((item) => (allText += ` / ${item.text}`));
+
+		const totalUnCompletedNum = totalNum - totalCompletedNum;
+		const percentCompleted = totalNum === 0 ? 0 : totalCompletedNum / totalNum;
+
+		return {
+			totalNum,
+			totalCompletedNum,
+			allText,
+			totalUnCompletedNum,
+			percentCompleted,
+		};
+	},
+});
+
+export { todoListState, todoListFilterState, filteredTodoListState, todoListInfoState };
