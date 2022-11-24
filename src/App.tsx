@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import TodoList from 'components/TodoList';
 
 function App() {
-	return <Container className="App">Recoil Simple TodoList</Container>;
+	return (
+		<Container className="App">
+			Recoil Simple TodoList
+			<TodoList />
+		</Container>
+	);
 }
 
 export default App;
