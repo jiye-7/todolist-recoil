@@ -19,7 +19,7 @@ const filteredTodoListState = selector({
 		switch (filter) {
 			case 'Show Completed':
 				return list.filter((item: todoItem) => item.isComplete);
-			case 'Show Uncompleted':
+			case 'Show UnCompleted':
 				return list.filter((item: todoItem) => !item.isComplete);
 			default:
 				return list;

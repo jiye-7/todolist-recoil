@@ -13,10 +13,8 @@ const TodoList = () => {
 	return (
 		<>
 			<TodoInfo />
-			<TodoCreateFilterContainer>
-				<TodoItemCreator />
-				<TodoListFilters />
-			</TodoCreateFilterContainer>
+			<TodoListFilters />
+			<TodoItemCreator />
 			{todoList?.map((todoItem: todoItem) => (
 				<TodoItem item={todoItem} key={todoItem.id} />
 			))}
